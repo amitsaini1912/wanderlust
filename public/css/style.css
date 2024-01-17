@@ -1,0 +1,98 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+.navbar{
+    height: 4rem;
+}
+
+.container{
+    margin-top: 1rem;
+}
+
+.footer{
+    height: 5rem;
+    padding-top: 2rem;
+}
+
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.fa-brands{
+    font-size: 1.3rem;
+    margin-right: 0.5rem;
+}
+
+.f-info-links a{
+    margin-right: 0.5rem;
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info{
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listing-card{
+    border: none !important;
+    margin-right: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-img-top{
+    border-radius: 0.6rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.listing_link{
+    text-decoration: none;
+}
+
+/* card Effect */
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.3;
+    background-color: white;
+}
+
+
+.add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+
+
+.show-btn-dlt{
+    transform: translate(5rem,-3.7rem);
+    border: none !important;
+}
+
+.show-btn-edit{
+    background-color: #fe424d !important;
+    border: none !important;
+}
