@@ -1,1 +1,0 @@
-* WanderLust Pvt Ltd. *
