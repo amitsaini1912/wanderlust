@@ -96,3 +96,11 @@ body{
     background-color: #fe424d !important;
     border: none !important;
 }
+
+
+/* mapbox */
+#map {
+    margin-top: 2rem;
+    width: 100% !important;
+    height: 400px;
+}

@@ -35,7 +35,7 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(DB_URL);
+  await mongoose.connect("mongodb://localhost:27017/wanderlust");
 };
 
 app.set("view engine", "ejs");
@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname , "/public")));
 // });
 
 const store = MongoStore.create({
-  mongoUrl: DB_URL,
+  mongoUrl: "mongodb://localhost:27017/wanderlust",
   crypto: {
     secret: process.env.SECRET,
   },
