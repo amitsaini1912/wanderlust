@@ -1,16 +1,20 @@
 <%- layout("./layouts/boilerplate.ejs") -%>
+<script>
+  const mapToken = "<%=process.env.MAP_TOKEN%>";
+  const listing = <%- JSON.stringify(listing) %>;
+</script>
 <div class="row">
-  <div class="col">
+  <div class="col-8 offset-2">
     <h3><%= listing.title %></h3>
 
     <div class="card col listing-card">
       <img src="<%= listing.image.url %>" class="card-img-top" style="height: 20rem;" alt="Listing_image">
       <div class="card-body">
         <p class="card-text mt-3"><i>OwnedBy_<%= listing.owner.username %></i></p>
-        <p class="card-text mt-3"><%= listing.description %></p>
-        <p class="card-text">&#8377; <%= listing.price.toLocaleString("en-IN") %></p>
-        <p class="card-text"><%= listing.location %></p>
-        <p class="card-text"><%= listing.country %></p>
+        <p class="card-text mt-3"><b>About:- </b><%= listing.description %></p>
+        <p class="card-text"><b>Price:- </b> &#8377;<%= listing.price.toLocaleString("en-IN") %></p>
+        <p class="card-text"><b>Address:- </b><%= listing.location %></p>
+        <p class="card-text"><b>Country:- </b><%= listing.country %></p>
       </div>
     </div>
     
@@ -56,10 +60,11 @@
     </div>
 
     <hr>
-
+    
+    <% if(listing.reviews.length > 0){ %>
     <div class="col mb-3">
-      <h4>Recent Reviews</h4>
       <div class="row">
+        <h4>Recent Reviews</h4>
         <% for(review of listing.reviews) {%>
           <div class="card col-5 ms-3 mb-3">
             <div class="card-body">
@@ -75,6 +80,14 @@
           </div>
         <% } %>
       </div>
+    </div>
+    <% } %>
+
+    <div class="col mb-3">
+      <h4>Where you'll be</h4>
+      <div id="map"></div>
+
+      <script src="/js/map.js"></script> 
     </div>
     
   </div>

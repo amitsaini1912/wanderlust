@@ -22,6 +22,7 @@ const User = require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const Listing = require("./models/listing.js");
 
 // const MONGO_URL = 'mongodb://127.0.0.1:27017/wanderlust';
 const DB_URL = process.env.DB_URL;
@@ -52,7 +53,7 @@ app.use(express.static(path.join(__dirname , "/public")));
 // });
 
 const store = MongoStore.create({
-  mongoUrl: DB_URL,
+  mongoUrl: "mongodb://localhost:27017/wanderlust",
   crypto: {
     secret: process.env.SECRET,
   },
@@ -98,6 +99,20 @@ app.use((req, res, next) => {
 app.use("/listings", listingRouter );
 app.use("/listings/:id/reviews", reviewRouter );
 app.use("/", userRouter );
+app.get("/search", async(req, res) => {
+   const key = req.query.key;
+   let resultListings = await Listing.find(
+    {
+      "$or": [
+        {title: {$regex: key, $options: "i"}},
+        {description: {$regex: key, $options: "i"}},
+        {location: {$regex: key, $options: "i"}},
+        {country: {$regex: key, $options: "i"}},
+      ]
+    }
+  )
+  res.render("listings/search.ejs", {resultListings});
+})
 
 
 // app.get("/testListing", async (req, res) => {
