@@ -39,6 +39,7 @@ https://wanderlust-project-blfc.onrender.com/listings
 ├── middleware.js # Custom middlewares (auth, validation)
 
 ├── app.js # Entry point
+
 └── .env # Environment variables
 
 
