@@ -25,12 +25,19 @@ https://wanderlust-project-blfc.onrender.com/listings
 ## 📁 Folder Structure
 
 ├── controllers/ # Route logic (hotels, users, reviews)
+
 ├── models/ # Mongoose schemas
+
 ├── routes/ # Express routes
+
 ├── views/ # EJS templates (hotels, layouts, users)
+
 ├── utils/ # Utility functions (e.g. geocoding)
+
 ├── public/ # Static assets (CSS, images)
+
 ├── middleware.js # Custom middlewares (auth, validation)
+
 ├── app.js # Entry point
 └── .env # Environment variables
 
